@@ -5,6 +5,10 @@ workflows:
     integrations:
       app_store_connect: siriplan_api_key
     environment:
+      # Codemagic: "firebase" grubunda gizli (secure) GOOGLE_SERVICE_INFO_PLIST_B64 =
+      # GoogleService-Info.plist dosyasinin base64 hali. Depo public: plist commit'lenmez.
+      groups:
+        - firebase
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.siriplan.app
@@ -14,6 +18,15 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
+      - name: Write GoogleService-Info.plist from secret
+        script: |
+          set -e
+          if [ -z "$GOOGLE_SERVICE_INFO_PLIST_B64" ]; then
+            echo "GOOGLE_SERVICE_INFO_PLIST_B64 tanimli degil; pushsuz build almamak icin durduruldu."; exit 1
+          fi
+          echo "$GOOGLE_SERVICE_INFO_PLIST_B64" | base64 --decode > src/SiriPlan/GoogleService-Info.plist
+          BID=$(/usr/libexec/PlistBuddy -c "Print :BUNDLE_ID" src/SiriPlan/GoogleService-Info.plist)
+          if [ "$BID" != "com.siriplan.app" ]; then echo "Yanlis BUNDLE_ID: $BID"; exit 1; fi
       - name: Install CocoaPods dependencies
         script: |
           cd src && pod install
