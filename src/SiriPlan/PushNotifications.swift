@@ -1,4 +1,5 @@
 import WebKit
+import FirebaseCore
 import FirebaseMessaging
 
 class SubscribeMessage {
@@ -25,6 +26,7 @@ class SubscribeMessage {
 }
 
 func handleSubscribeTouch(message: WKScriptMessage) {
+  if FirebaseApp.app() == nil { return }
   // [START subscribe_topic]
     let subscribeMessages = parseSubscribeMessage(message: message)
     if (subscribeMessages.count > 0){
@@ -81,6 +83,7 @@ func returnPermissionState(state: String){
 }
 
 func handlePushPermission() {
+    if FirebaseApp.app() == nil { returnPermissionResult(isGranted: false); return }
     UNUserNotificationCenter.current().getNotificationSettings () { settings in
             switch settings.authorizationStatus {
             case .notDetermined:
@@ -108,12 +111,16 @@ func handlePushPermission() {
                 returnPermissionResult(isGranted: false)
             case .authorized, .ephemeral, .provisional:
                 returnPermissionResult(isGranted: true)
+                DispatchQueue.main.async {
+                  UIApplication.shared.registerForRemoteNotifications()
+                }
             @unknown default:
                 return;
             }
         }
 }
 func handlePushState() {
+    if FirebaseApp.app() == nil { returnPermissionState(state: "unavailable"); return }
     UNUserNotificationCenter.current().getNotificationSettings () { settings in
         switch settings.authorizationStatus {
         case .notDetermined:
@@ -147,6 +154,7 @@ func checkViewAndEvaluate(event: String, detail: String) {
 }
 
 func handleFCMToken(){
+    if FirebaseApp.app() == nil { return }
     DispatchQueue.main.async(execute: {
         Messaging.messaging().token { token, error in
             if let error = error {

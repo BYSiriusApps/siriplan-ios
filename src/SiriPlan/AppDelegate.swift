@@ -8,29 +8,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window : UIWindow?
 
+    static func hasValidFirebaseConfig() -> Bool {
+        guard let path = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist"),
+              let dict = NSDictionary(contentsOfFile: path),
+              let bundleId = dict["BUNDLE_ID"] as? String,
+              let apiKey = dict["API_KEY"] as? String else { return false }
+        return bundleId == Bundle.main.bundleIdentifier && !apiKey.hasPrefix("0000")
+    }
+
     func application(_ application: UIApplication,
                        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-// TODO: if we're using Firebase, uncomment next string
-        //FirebaseApp.configure()
+        // Firebase yalnızca GERÇEK GoogleService-Info.plist varsa başlatılır (bundle id eşleşmeli).
+        // Şablon/yanlış plist ile FirebaseApp.configure() uygulamayı bozabileceği için
+        // bu durumda push tamamen kapalı kalır, uygulamanın geri kalanı aynen çalışır.
+        guard AppDelegate.hasValidFirebaseConfig() else { return true }
+        FirebaseApp.configure()
 
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = self
         // [END set_messaging_delegate]
-        // Register for remote notifications. This shows a permission dialog on first run, to
-        // show the dialog at a more appropriate time move this registration accordingly.
-        // [START register_for_notifications]
-   
+
         UNUserNotificationCenter.current().delegate = self
 
-      //  let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-      //  UNUserNotificationCenter.current().requestAuthorization(
-      //      options: authOptions,
-      //      completionHandler: {_, _ in })
-
-// TODO: if we're using Firebase, uncomment next string
-        // application.registerForRemoteNotifications()
-
+        // İzin penceresi burada AÇILMAZ: web sayfası (Hesabım/Ayarlar anahtarı ya da ana sayfa kartı)
+        // "push-permission-request" ile ister. İzin daha önce verilmişse APNs kaydı her açılışta yenilenir.
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .authorized, .provisional, .ephemeral:
+                DispatchQueue.main.async { application.registerForRemoteNotifications() }
+            default:
+                break
+            }
+        }
         // [END register_for_notifications]
         return true
       }
