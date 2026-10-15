@@ -10,6 +10,15 @@
 	<string>SiriusPlan uses the camera to scan product barcodes for inventory and retail sales, and to let you attach photos to services, customer records, and your business logo.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>tr</string>
+		<string>ru</string>
+		<string>ar</string>
+		<string>de</string>
+		<string>es</string>
+	</array>
 	<key>CFBundleDisplayName</key>
 	<string>SiriusPlan</string>
 	<key>CFBundleExecutable</key>
