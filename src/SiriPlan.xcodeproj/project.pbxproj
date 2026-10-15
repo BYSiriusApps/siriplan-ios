@@ -20,6 +20,7 @@
 		CDC0FE292388222C002C8D56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC0FE252388222B002C8D56 /* Main.storyboard */; };
 		CDC0FE2A2388222C002C8D56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC0FE272388222B002C8D56 /* LaunchScreen.storyboard */; };
 		E1E260C850014D6B34B487B0 /* Pods_SiriPlan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9D7FFB2FBE6EEBCA807B6A /* Pods_SiriPlan.framework */; };
+		D1AC0DE51000F77800000000 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1AC0DE51000D88900000000 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,12 @@
 		BEE8E5C625AE96C07F8AADED /* Pods-SiriPlan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SiriPlan.debug.xcconfig"; path = "Target Support Files/Pods-SiriPlan/Pods-SiriPlan.debug.xcconfig"; sourceTree = "<group>"; };
 		CDC0FE262388222B002C8D56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "SiriPlan/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		CDC0FE282388222B002C8D56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "SiriPlan/Base.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		D1AC0DE510001EEF00000000 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "SiriPlan/en.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D1AC0DE510003DDE00000000 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = "SiriPlan/tr.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D1AC0DE510005CCD00000000 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "SiriPlan/ru.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D1AC0DE510007BBC00000000 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = "SiriPlan/ar.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D1AC0DE510009AAB00000000 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = "SiriPlan/de.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D1AC0DE51000B99A00000000 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "SiriPlan/es.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +93,7 @@
 				595F23A125CEFBFE0053416C /* ViewController.swift */,
 				CDC0FE272388222B002C8D56 /* LaunchScreen.storyboard */,
 				CDC0FE252388222B002C8D56 /* Main.storyboard */,
+				D1AC0DE51000D88900000000 /* InfoPlist.strings */,
 				595F23A425CEFBFE0053416C /* WebView.swift */,
 				30FCACC6A7BF53CD6D9CF6C0 /* Pods */,
 				90E46E861CB86F5FAF46BED9 /* Frameworks */,
@@ -138,6 +146,11 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
+				ru,
+				ar,
+				de,
+				es,
 			);
 			mainGroup = CD89F880237E9D9200C436A1;
 			productRefGroup = CD89F880237E9D9200C436A1;
@@ -159,6 +172,7 @@
 				CDC0FE2A2388222C002C8D56 /* LaunchScreen.storyboard in Resources */,
 				595F23A725CEFBFE0053416C /* Assets.xcassets in Resources */,
 				25D3517F267A48E0002E5DC0 /* GoogleService-Info.plist in Resources */,
+				D1AC0DE51000F77800000000 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +252,19 @@
 				CDC0FE282388222B002C8D56 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D1AC0DE51000D88900000000 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1AC0DE510001EEF00000000 /* en */,
+				D1AC0DE510003DDE00000000 /* tr */,
+				D1AC0DE510005CCD00000000 /* ru */,
+				D1AC0DE510007BBC00000000 /* ar */,
+				D1AC0DE510009AAB00000000 /* de */,
+				D1AC0DE51000B99A00000000 /* es */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -372,7 +399,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SiriPlan/Entitlements/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "SiriPlan/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -380,8 +407,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
-				CURRENT_PROJECT_VERSION = 5;
+				MARKETING_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.siriplan.app";
 				PRODUCT_NAME = "SiriPlan";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -400,7 +427,7 @@
 				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_ENTITLEMENTS = "SiriPlan/Entitlements/Entitlements.plist";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "SiriPlan/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -408,8 +435,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
-				CURRENT_PROJECT_VERSION = 5;
+				MARKETING_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.siriplan.app";
 				PRODUCT_NAME = "SiriPlan";
 				SUPPORTS_MACCATALYST = YES;
