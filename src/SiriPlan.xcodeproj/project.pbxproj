@@ -399,7 +399,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SiriPlan/Entitlements/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "SiriPlan/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -408,7 +408,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.siriplan.app";
 				PRODUCT_NAME = "SiriPlan";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -427,7 +427,7 @@
 				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_ENTITLEMENTS = "SiriPlan/Entitlements/Entitlements.plist";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "SiriPlan/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -436,7 +436,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.siriplan.app";
 				PRODUCT_NAME = "SiriPlan";
 				SUPPORTS_MACCATALYST = YES;
